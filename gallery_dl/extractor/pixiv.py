@@ -1229,12 +1229,8 @@ class PixivAppAPI():
         return self._pagination(
             "/v1/user/bookmark-tags/illust", params, "bookmark_tags")
 
-    def user_detail(self, user_id):
-        user_id = int(user_id)
-        return self._user_detail(user_id)
-
     @memcache(keyarg=1)
-    def _user_detail(self, user_id):
+    def user_detail(self, user_id):
         params = {"user_id": user_id}
         return self._call("/v1/user/detail", params)
 
